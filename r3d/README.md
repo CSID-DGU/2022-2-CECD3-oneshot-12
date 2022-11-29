@@ -170,11 +170,6 @@ python main.py --video_path ~/prepared_dataset/export_v2
 ```
 
 ```bash
-PyTorch/export_01.json --result_path ./results/test \
-  --dataset ucf101 --n_classes 2   --n_pretrain_classes 700 --pretrain_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/pth/r3d50_K_200ep.pth \
-  --ft_begin_module fc   --model resnet --model_depth 50 --batch_size 128 --n_threads 4 --checkpoint 5 \
-  --n_epochs 200
-
 
 python main.py --video_path ~/export_v2 \
   --annotation_path ~/export_01.json  --dataset ucf101 --n_classes 2  \
@@ -195,8 +190,6 @@ python main.py --video_path ~/export_v2 \
   --model resnet2p1d --model_depth 50 --n_pretrain_classes 1039 \
   --n_epochs 200
 ```
-
-python -m util_scripts.eval_accuracy ~/data/kinetics.json ~/data/results/val.json --subset val -k 1 --ignore
 
 
 ---
