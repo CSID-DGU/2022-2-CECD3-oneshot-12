@@ -23,7 +23,7 @@ Anomaly Detection은 2D 프레임의 시퀀스인 Video Clips에서 이상 행�
 
 ## Model Architecture
 
-
+![model_architecture](./img/model_architecture.png)
 
 ### Video Preprocessing
 3D ResNet 모델에 데이터를 입력하여 훈련을 진행하기 위해 동영상 데이터를 이미지 형태로 전처리한다. 사전 학습 과정에서 사용할 Kinetics-700, MiT, STAIR Action 데이터셋과 전이 학습 과정에서 사용할 이상행위 데이터셋을 frame 단위로 추출하여 3D ResNet 모델에 입력되기 위한 전처리 과정을 진행한다.!
