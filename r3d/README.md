@@ -54,8 +54,6 @@ python -m util_scripts.kinetics_json csv_dir_path 700 jpg_video_dir_path jpg dst
 ```bash
 python -m util_scripts.generate_video_jpgs avi_video_dir_path jpg_video_dir_path ucf101
 
-nohup python -m util_scripts.generate_video_jpgs /home/plass-oneshot/jsw/video_gan/DVD-GAN/dataset/UCF101/videos_classified /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset ucf101 &
-
 ```
 
 * Generate annotation file in json format similar to ActivityNet using ```util_scripts/ucf101_json.py```
@@ -64,9 +62,8 @@ nohup python -m util_scripts.generate_video_jpgs /home/plass-oneshot/jsw/video_g
 ```bash
 python -m util_scripts.ucf101_json annotation_dir_path jpg_video_dir_path dst_json_path
 
-python -m util_scripts.ucf101_json /home/plass-oneshot/jsw/3D-ResNets-PyTorch/annotations/ucfTrainTestlist /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset /home/plass-oneshot/jsw/3D-ResNets-PyTorch/dst_json
 
-python -m util_scripts.ucf101_json2 /home/plass-oneshot/jsw/3D-ResNets-PyTorch/annotations/export_ann /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/export/ /home/plass-oneshot/jsw/3D-ResNets-PyTorch/
+python -m util_scripts.ucf101_json2 ~/annotations/export_ann /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/export/ 
 ```
 
 ### HMDB-51
@@ -153,42 +150,50 @@ python main.py --root_path ~/data --video_path ucf101_videos/jpg --annotation_pa
 --model resnet --model_depth 50 --batch_size 128 --n_threads 4 --checkpoint 5
 
 
-python main.py --video_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset \ # jpg
-  --annotation_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/dst_json/ucf101_01.json \ # json
+python main.py --video_path ~/prepared_dataset \ # jpg
+  --annotation_path ~/ucf101_01.json \ # json
   --result_path results \
   --dataset ucf101 \ # dataset
   --n_classes 101 \ # n_classes
   --n_pretrain_classes 700 \ 
-  --pretrain_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/pth/r3d50_K_200ep.pth \
+  --pretrain_path ~/pth/r3d50_K_200ep.pth \
   --ft_begin_module fc \ # fc
   --model resnet --model_depth 50 --batch_size 128 --n_threads 4 --checkpoint 5
 
 
-python main.py --video_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/ucf101 --annotation_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/dst_json/ucf101_01.json --result_path ./results/test/ \
-  --dataset ucf101 --n_classes 101   --n_pretrain_classes 700 --pretrain_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/pth/r3d50_K_200ep.pth \
+python main.py --video_path ~/prepared_dataset/ucf101 
+  --annotation_path ~/dst_json/ucf101_01.json --result_path ./results/test/ \
+  --dataset ucf101 --n_classes 101   --n_pretrain_classes 700 --pretrain_path ~/pth/r3d50_K_200ep.pth \
   --ft_begin_module fc   --model resnet --model_depth 50 --batch_size 128 --n_threads 4 --checkpoint 5
 
 
-python main.py --video_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/export_v2 --annotation_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/export_01.json --result_path ./results/test \
+python main.py --video_path ~/prepared_dataset/export_v2 
+  --annotation_path 
+```
+
+```bash
+PyTorch/export_01.json --result_path ./results/test \
   --dataset ucf101 --n_classes 2   --n_pretrain_classes 700 --pretrain_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/pth/r3d50_K_200ep.pth \
   --ft_begin_module fc   --model resnet --model_depth 50 --batch_size 128 --n_threads 4 --checkpoint 5 \
   --n_epochs 200
 
 
-python main.py --video_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/export_v2 --annotation_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/export_01.json  --dataset ucf101 --n_classes 2  \
+python main.py --video_path ~/export_v2 \
+  --annotation_path ~/export_01.json  --dataset ucf101 --n_classes 2  \
   --ft_begin_module fc  --batch_size 128 --n_threads 4 \
   --checkpoint 25 \
   --result_path ./results/resnet18/r3d34_K_200ep \
-  --pretrain_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/pth/r3d34_K_200ep.pth \
---model resnet --model_depth 34 --n_pretrain_classes 700\
+  --pretrain_path ~/pth/r3d34_K_200ep.pth \
+  --model resnet --model_depth 34 --n_pretrain_classes 700\
   --n_epochs 200
 
 
-python main.py --video_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/export_v2 --annotation_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/export_01.json  --dataset ucf101 --n_classes 2  \
+python main.py --video_path ~/export_v2 \
+  --annotation_path ~/export_01.json  --dataset ucf101 --n_classes 2  \
   --ft_begin_module fc  --batch_size 128 --n_threads 4 \
   --checkpoint 25 \
   --result_path ./results/aug \
-  --pretrain_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/pth/r2p1d50_KM_200ep.pth \
+  --pretrain_path ~/pth/r2p1d50_KM_200ep.pth \
   --model resnet2p1d --model_depth 50 --n_pretrain_classes 1039 \
   --n_epochs 200
 ```
@@ -196,30 +201,9 @@ python main.py --video_path /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_
 python -m util_scripts.eval_accuracy ~/data/kinetics.json ~/data/results/val.json --subset val -k 1 --ignore
 
 
-### pretrain
-#### 50
-r3d50_K_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 700
-r3d50_KM_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 1039
-r3d50_KMS_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 1139
-r3d50_KS_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 800
-r3d50_M_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 339
-r3d50_MS_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 439
-r3d50_S_200ep.pth: --model resnet --model_depth 50 --n_pretrain_classes 100
+---
 
-r3d18_K_200ep.pth: --model resnet --model_depth 18 --n_pretrain_classes 700
-r3d18_KM_200ep.pth: --model resnet --model_depth 18 --n_pretrain_classes 1039
+### Reference
 
-r3d34_K_200ep.pth: --model resnet --model_depth 34 --n_pretrain_classes 700
-r3d34_KM_200ep.pth: --model resnet --model_depth 34 --n_pretrain_classes 1039
+* https://github.com/kenshohara/3D-ResNets-PyTorch
 
-#### 101
-r3d101_K_200ep.pth: --model resnet --model_depth 101 --n_pretrain_classes 700
-r3d101_KM_200ep.pth: --model resnet --model_depth 101 --n_pretrain_classes 1039
-
-#### 152
-r3d152_K_200ep.pth: --model resnet --model_depth 152 --n_pretrain_classes 700
-r3d152_KM_200ep.pth: --model resnet --model_depth 152 --n_pretrain_classes 1039
-
-#### 200
-r3d200_K_200ep.pth: --model resnet --model_depth 200 --n_pretrain_classes 700
-r3d200_KM_200ep.pth: --model resnet --model_depth 200 --n_pretrain_classes 1039
