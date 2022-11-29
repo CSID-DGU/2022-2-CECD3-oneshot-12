@@ -21,7 +21,7 @@ Anomaly Detection은 2D 프레임의 시퀀스인 Video Clips에서 이상 행�
 
 3D ResNet의 3D ConvNet은 2D ResNet의 2D ConvNet이 3D 형태로 확장된 구조이다. 2D 형태의 이미지에 Spatio-Temporal 정보가 포함된 Video 형식의 데이터를 처리하기 위한 형태를 갖는다.[8] 2D 기반의 이미지 데이터에서 3D 기반의 동영상 데이터를 처리할 수 있는 형태로 변환된 구조이다. 
 
-![skip_connection](./img/skip_connection.png)
+<img src="./img/skip_connection.png" width="200" height="400"/>
 
 3D ResNet은 2D ResNet과 마찬가지로 Skip Connection을 사용하여, 연산량을 감소시킨다. 모델에서 레이어 수를 늘려 모델의 깊이가 깊어질 경우 연산량이 증가하고 정확도가 감소하는 문제가 발생한다.[9] Skip Connection은 레이어의 특정 부분에서의 입력을 출력 부분에 연결시켜 이러한 문제를 해결한다.[10] 입력되는 정보가 출력 부분에서 한 번 더 참고되기 때문에 기존과 달리 연산량이 감소하고, 정확도가 높아지게 된다.
 
