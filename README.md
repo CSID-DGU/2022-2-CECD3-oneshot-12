@@ -4,9 +4,9 @@
 * 유영현()
 * 조성운(2018113338)
 
-# paper : A Study Anomaly Detection Using Transfer Learning based 3D ResNet
+# Paper : A Study Anomaly Detection Using Transfer Learning based 3D ResNet
 
-* [paper_link](./paper.pdf)
+* [paper_link](./paper/paper.pdf)
 
 ## Abstract
 
