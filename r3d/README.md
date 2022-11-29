@@ -62,8 +62,6 @@ python -m util_scripts.generate_video_jpgs avi_video_dir_path jpg_video_dir_path
 ```bash
 python -m util_scripts.ucf101_json annotation_dir_path jpg_video_dir_path dst_json_path
 
-
-python -m util_scripts.ucf101_json2 ~/annotations/export_ann /home/plass-oneshot/jsw/3D-ResNets-PyTorch/prepared_dataset/export/ 
 ```
 
 ### HMDB-51
