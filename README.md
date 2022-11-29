@@ -1,7 +1,7 @@
 # 2022-2-CECD3-oneshot-12
 
 * 주제 : 유치장 속 이상행위자 탐지 연구
-* 유영현()
+* 유영현(2016112181)
 * 조성운(2018113338)
 
 # Paper : A Study Anomaly Detection Using Transfer Learning based 3D ResNet
