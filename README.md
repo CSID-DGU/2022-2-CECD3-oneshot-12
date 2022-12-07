@@ -53,6 +53,7 @@ Anomaly Detection은 2D 프레임의 시퀀스인 Video Clips에서 이상 행�
 ## Result
 
 ### Dataset
+* [paper_link](./Models/Dataset.md)
 
 사전 학습으로 사용한 데이터셋은 Kinetics-700, MiT, STAIR Action으로 총 3가지이다. 3가지 데이터셋을 통해 3D ResNet 모델을 훈련하여, 각 데이터셋의 특징이 반영된 가중치를 계산한다.
 전이 학습으로 사용한 Anomaly 데이터셋의 경우 유치장 환경에서 영상을 직접 촬영하여 구축하였다. 정상행위가 담긴 영상은 Normal, 이상행위가 담긴 영상은 Selfharm으로 라벨링하였다. Selfharm 영상의 경우 벽에 머리를 박거나 스스로 자해행위를 하는 행동을 촬영하였다. 
